@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import services from "../services";
 import { Link } from "react-router-dom";
+import css from './homePage.module.css'
 
 class HomePage extends Component {
   state = {
@@ -15,11 +16,11 @@ class HomePage extends Component {
 
   render() {
     return (
-      <>
-        <h2>Trending today</h2>
-        <ul>
+      <div className={css.homePageWrapper}>
+        <h2 className={css.trendingHeader}>Trending today</h2>
+        <ul className={css.trendingList}>
           {this.state.movies.map(movie => (
-            <li key={movie.id}>
+            <li className={css.trendingListItem} key={movie.id}>
               <Link
                 to={{
                   pathname: `movies/${movie.id}`,
@@ -31,7 +32,7 @@ class HomePage extends Component {
             </li>
           ))}
         </ul>
-      </>
+      </div>
     );
   }
 }

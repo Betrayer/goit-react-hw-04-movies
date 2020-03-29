@@ -6,7 +6,6 @@ class Reviews extends Component {
 
   componentDidMount() {
     const id = this.props.location.state.id;
-    console.log("id", id);
     services.getMovieReviews(id).then(({ data }) => {
       this.setState({ reviews: data.results });
     });
@@ -14,7 +13,6 @@ class Reviews extends Component {
 
   render() {
     const { reviews } = this.state;
-    console.log("reviews", reviews);
     return (
       <div>
         <ul>

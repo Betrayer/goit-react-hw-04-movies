@@ -1,0 +1,45 @@
+.trendingHeader {
+  font-family: "Roboto", "Arial", sans-serif;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+.trendingList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.trendingListItem a {
+  text-decoration: none;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.homePageWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+a:link {
+  color: rgb(rgb(0, 0, 0), green, blue);
+}
+
+a:visited {
+  color: rgb(65, 65, 65);
+}
+
+a:hover {
+  font-size: ;
+  text-decoration: underline;
+  font-size: 24px;
+}
+
+body {
+  background-color: rgba(182, 182, 182, 0.568);
+}

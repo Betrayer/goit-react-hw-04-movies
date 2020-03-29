@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import services from "../services";
 import SearchBar from "../searchBar/SearchBar";
+import css from './moviesPage.module.css'
 
 export default class MoviesPage extends Component {
   state = {
@@ -20,17 +21,16 @@ export default class MoviesPage extends Component {
 
   render() {
     const { movies } = this.state;
-    const { location } = this.props;
     return (
-      <div>
+      <div className={css.moviesWrapper}>
         <SearchBar onSearch={this.onSearch} />
-        <ul>
+        <ul className={css.resultList}>
           {movies.map(movie => (
-            <li key={movie.id}>
+            <li className={css.resultListItem} key={movie.id}>
               <Link
                 to={{
                   pathname: `/movies/${movie.id}`,
-                  state: { from: location }
+                  state: { id: movie.id }
                 }}
               >
                 {movie.title || movie.name}

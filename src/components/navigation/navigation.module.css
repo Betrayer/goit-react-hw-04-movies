@@ -1,0 +1,10 @@
+.navigationWrapper {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.navigationWrapper a {
+    font-size: 20px;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    text-decoration: none;
+}
