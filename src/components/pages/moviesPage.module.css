@@ -15,6 +15,7 @@
 }
 
 .resultListItem a {
+  font-family: "Roboto", "Arial", sans-serif;
   text-decoration: none;
   font-size: 20px;
   line-height: 30px;
