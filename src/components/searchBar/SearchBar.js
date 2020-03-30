@@ -8,6 +8,7 @@ class SearchBar extends Component {
 
   handleChange = ({ target }) => {
     this.setState({ inputValue: target.value });
+    this.props.onChange(target.value);
   };
 
   handleSubmit = event => {
@@ -22,8 +23,9 @@ class SearchBar extends Component {
     const { inputValue } = this.state;
     return (
       <div className={css.searchFormWrapper}>
-        <form  onSubmit={this.handleSubmit}>
-          <input className={css.searchForm}
+        <form onSubmit={this.handleSubmit}>
+          <input
+            className={css.searchForm}
             type="text"
             value={inputValue}
             placeholder="Let's find a movie!"

@@ -7,20 +7,29 @@ import css from "./movieDetailsPage.module.css";
 
 class MovieDetailsPage extends Component {
   state = {
-    movie: {}
+    movie: {},
+    pathname: "",
+    search: ""
   };
 
   componentDidMount() {
     services.getMovieDetails(this.props.location.state.id).then(({ data }) => {
       this.setState({ movie: data });
     });
+    this.setState({
+      pathname: this.props.location.state.from,
+      search: this.props.location.state.search
+    });
   }
 
   handleGoback = () => {
+    const { pathname, search } = this.state;
     const { history, location } = this.props;
-    if (location.state) {
-      // return history.push(location.state.from);
-      // history.goBack();
+    if (location.state.from !== undefined) {
+      return history.push({
+        pathname,
+        search
+      });
     }
     return history.push("/");
   };
@@ -49,13 +58,17 @@ class MovieDetailsPage extends Component {
 
           <div className={css.movieInfoWrapper}>
             <h2 className={css.movieTitle}>{movie.title}</h2>
-            <p className={css.movieScore}>User score: {movie.vote_average * 10}%</p>
+            <p className={css.movieScore}>
+              User score: {movie.vote_average * 10}%
+            </p>
             <p className={css.movieOverview}>Overview:</p>
             <p className={css.movieOverviewText}>{movie.overview}</p>
             <p className={css.movieGenres}>Genres:</p>
             <p>
               {genres.map(genre => (
-                <span className={css.movieGenresList} key={genre.id}>{genre.name} </span>
+                <span className={css.movieGenresList} key={genre.id}>
+                  {genre.name}{" "}
+                </span>
               ))}
             </p>
           </div>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import services from "../services";
+import css from "./cast.module.css";
 
 class Cast extends Component {
   state = { cast: [] };
@@ -14,13 +15,13 @@ class Cast extends Component {
   render() {
     const { cast } = this.state;
     return (
-      <div>
-        <ul>
+      <div className={css.castWrapper}>
+        <ul className={css.castList}>
           {cast.map(cast => (
-            <li key={cast.cast_id}>
+            <li className={css.castListItem} key={cast.cast_id}>
               <p>Character:</p>
               <p>{cast.character}</p>
-              <img
+              <img className={css.actorPhoto}
                 src={
                   cast.profile_path
                     ? `https://image.tmdb.org/t/p/w500/${cast.profile_path}`
@@ -28,6 +29,7 @@ class Cast extends Component {
                 }
                 alt={cast.name}
               />
+              <p>Performed by:</p>
               <p>{cast.name}</p>
             </li>
           ))}
